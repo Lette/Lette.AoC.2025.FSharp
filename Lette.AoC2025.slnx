@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Lette.AoC2025.App/Lette.AoC2025.App.fsproj" />
+  <Project Path="Lette.AoC2025.Core/Lette.AoC2025.Core.fsproj" />
+  <Project Path="Lette.AoC2025.Tests/Lette.AoC2025.Tests.fsproj" />
+</Solution>
