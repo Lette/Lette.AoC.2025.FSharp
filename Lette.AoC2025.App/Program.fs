@@ -40,6 +40,8 @@ module Program =
 
             | "-t"                        :: xs -> loop xs (acc |> Settings.withParserTime)
             | "--show-parser-time"        :: xs -> loop xs (acc |> Settings.withParserTime)
+            | "-tx"                       :: xs -> loop xs (acc |> Settings.withoutParserTime)
+            | "--hide-parser-time"        :: xs -> loop xs (acc |> Settings.withoutParserTime)
 
             | s                           :: _  -> failwith $"'%s{s}' is an unknown argument"
 

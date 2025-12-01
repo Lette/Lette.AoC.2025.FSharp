@@ -47,6 +47,9 @@ module Settings =
     let withParserTime settings =
         { settings with ShowParserTime = true }
 
+    let withoutParserTime settings =
+        { settings with ShowParserTime = false }
+
     let defaults =
         {
             Days = Latest
