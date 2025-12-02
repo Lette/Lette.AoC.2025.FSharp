@@ -83,9 +83,30 @@ module Core =
 
     let numberOfDigits = float >> log10 >> int >> (+) 1
     let numberOfDigitsL: (int64 -> int) = float >> log10 >> int >> (+) 1
+    let numberOfDigitsLS: (int64 -> int) = string >> _.Length
 
     let (%+) a b = ((a % b) + b) % b   // Always returns a value in [0..b-1]
     let (%+!) a b = (a + b) % b        // Shortcut to save one operation. Only use if a >= -b.
+
+    let isEven x = x % 2 = 0
+    let isOdd x = x % 2 = 1
+
+    let getDivisors n =
+        let rec loop d acc =
+            if d * d > n then
+                acc
+            else if n % d = 0 then
+                let acc' = d :: acc
+                if d * d = n then
+                    loop (d + 1) acc'
+                else
+                    loop (d + 1) ((n / d) :: acc')
+            else
+                loop (d + 1) acc
+        loop 1 [] |> List.sort
+
+    let getProperDivisors n =
+        getDivisors n |> fun l -> List.take (List.length l - 1) l
 
 [<RequireQualifiedAccess>]
 module List =
@@ -107,6 +128,9 @@ module List =
                 let pairs' = xs |> List.map (fun y -> (x, y))
                 loop (pairs' @ acc) xs
         loop [] list
+
+    let foldBack' folder =
+        flip (List.foldBack (flip folder))
 
 [<RequireQualifiedAccess>]
 module Seq =
