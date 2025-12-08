@@ -25,3 +25,5 @@ module Primitives =
     let restOfLine1<'a> = many1Satisfy ((<>) '\n') <??> "at least one character before the end of the line" : Parser<string, 'a>
 
     let normalizeT ((a, b), c) = (a, b, c)
+
+    let (||>>) p f = p |>> fun p -> p ||> f

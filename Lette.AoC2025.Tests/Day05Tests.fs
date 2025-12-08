@@ -23,7 +23,7 @@ module Day05Tests =
     let ``Parser works`` () =
         let result = parse input ()
 
-        result |> should equal ([(3L, 5L); (10L, 14L); (16L, 20L); (12L, 18L)], [1L; 5L; 8L; 11L; 17L; 32L])
+        result |> should equal ([(3L, 5L); (10L, 14L); (16L, 20L); (12L, 18L)] |> List.map (fun p -> p ||> Range.create), [1L; 5L; 8L; 11L; 17L; 32L])
 
     [<Fact>]
     let ``Part 1`` () =
