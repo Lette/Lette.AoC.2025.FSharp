@@ -21,6 +21,7 @@ module Primitives =
     let newlineP<'a> = pchar '\n' : Parser<_, 'a>
 
     let sepBy' p sep = p .>>. (many (attempt (sep >>. p))) |>> cons'
+    let rowsOf p = sepBy' p newlineP
 
     let restOfLine1<'a> = many1Satisfy ((<>) '\n') <??> "at least one character before the end of the line" : Parser<string, 'a>
 
