@@ -16,6 +16,7 @@
         <Content Include="Input\Day03.txt" />
         <Content Include="Input\Day04.txt" />
         <Content Include="Input\Day05.txt" />
+        <Content Include="Input\Day06.txt" />
         <Compile Include="Data.fs" />
         <Compile Include="Presentation.fs" />
         <Compile Include="Solves\DayXX.fs" />
@@ -24,6 +25,7 @@
         <Compile Include="Solves\Day03.fs" />
         <Compile Include="Solves\Day04.fs" />
         <Compile Include="Solves\Day05.fs" />
+        <Compile Include="Solves\Day06.fs" />
         <Compile Include="Timing.fs" />
         <Compile Include="Program.fs" />
     </ItemGroup>

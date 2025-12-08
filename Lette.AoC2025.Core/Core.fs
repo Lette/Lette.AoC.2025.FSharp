@@ -243,3 +243,4 @@ module String =
     let toCharArray (str : string) = str.ToCharArray ()
     let ofArray (chars : char[]) = System.String chars
     let ofList (chars : char list) : string = System.String (chars |> List.toArray)
+    let regexSplit pattern input = System.Text.RegularExpressions.Regex.Split(input, pattern)
